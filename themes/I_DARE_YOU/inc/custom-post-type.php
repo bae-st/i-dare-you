@@ -63,7 +63,7 @@ if ( ! function_exists( 'register_post_types' ) ) {
 				'page-attributes',
 				'post-formats'
 			);
-			$args            = array(
+			$args = array(
 				'labels'              => $labels,
 				'hierarchical'        => $hierarchical,
 				'description'         => $description,
@@ -79,6 +79,7 @@ if ( ! function_exists( 'register_post_types' ) ) {
 				'query_var'           => true,
 				'can_export'          => true,
 				'rewrite'             => $rewrite,
+				'show_in_rest'        => true,
 				'supports'            => $supports
 			);
 			register_post_type( $post_type['slug'], $args );
