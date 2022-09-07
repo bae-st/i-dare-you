@@ -1,4 +1,7 @@
-const APP = (function () {
+const APP_LIST = (function () {
+  let offset = 0
+  const limit = 0
+
   function init() {
     fetch(AJAX_URL, {
       method: 'POST',
@@ -6,13 +9,13 @@ const APP = (function () {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
       body: new URLSearchParams({
-        action: 'get_venues', id: 32
+        action: 'get_venues_list', offset, limit
       })
     })
       .then((response) => response.json())
       .then(data => console.log(data))
       .catch((error) => {
-        console.log(error)
+        console.log(error);
       })
   }
 
@@ -22,4 +25,4 @@ const APP = (function () {
     }
   }
 })();
-APP.init();
+APP_LIST.init();

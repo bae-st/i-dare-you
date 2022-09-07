@@ -1,6 +1,8 @@
-let APP = {};
+let APP_LIST = {};
 (function ($) {
-  APP = {
+  APP_LIST = {
+    _offset: 0,
+    _limit: 0,
     init() {
       $.ajax({
         type: 'GET',
@@ -8,20 +10,21 @@ let APP = {};
         async: true,
         url: AJAX_URL,
         data: {
-          action: 'get_venues',
-          id: 32
+          action: 'get_venues_list',
+          offset: this._offset,
+          limit: this._limit
         },
         success: (data) => {
-          console.log(data)
+          console.log(data);
         },
         error: (error) => {
-          console.log(error)
+          console.log(error);
         }
       })
     }
   }
 
   $(document).ready(function () {
-    APP.init()
+    APP_LIST.init();
   })
-})(jQuery)
+})(jQuery);
